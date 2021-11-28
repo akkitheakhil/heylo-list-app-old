@@ -1,0 +1,55 @@
+@mixin input-text() {
+  .input-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: $margin-medium;
+
+    label {
+      color: color($color: "text-accent");
+      @include h6();
+      padding: 4px $padding;
+    }
+
+    input {
+      @include h5();
+      outline: none;
+      border: 2px solid color($color: "primary");
+      border-radius: $border-radius-medium;
+      background-color: color($color: "background-accent");
+      padding: $padding $padding-medium;
+      width: 320px;
+      height: 48px;
+      color: color($color: "text-primary");
+      overflow: hidden;
+    }
+  }
+}
+
+@mixin skeletonLoader() {
+  border-radius: $border-radius;
+  background: lighten(color($color: "background-accent"), 10%);
+  background-repeat: repeat-y;
+  background-size: 50px 500px;
+  background-position: 0 0;
+  animation: skeleton 1s ease-in-out forwards infinite;
+  animation-direction: alternate;
+}
+
+@keyframes shine {
+  to {
+    background-position: 100% 0, /* move highlight to right */ 0 0;
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    opacity: 0.2;
+    transform: translateY(6px) scale(0.98);
+  }
+  85%,
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}

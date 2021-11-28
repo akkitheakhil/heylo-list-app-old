@@ -1,0 +1,63 @@
+@import "~src/theme/theme.scss";
+
+.dashboard-header {
+  padding: $padding-large;
+  position: fixed;
+  background: color($color: "background");
+  width: 100%;
+  padding-bottom: 0px;
+  top: 0;
+  h1 {
+    font-size: font-size($size: "large") !important  ;
+  }
+}
+
+.dashboard-container {
+  padding: $padding-3xl $padding-large;
+
+  &__welcome-text-span {
+    color: color($color: "secondary");
+  }
+
+  &__status-text-span {
+    color: color($color: "primary");
+  }
+
+  &__status-text-loader {
+    margin-top: 4px;
+    width: 40%;
+    height: 15px;
+    display: block;
+    @include skeletonLoader();
+  }
+
+  &__main-contents {
+    display: flex;
+    flex-direction: column;
+
+    .heylo-category-list {
+      flex: 1;
+    }
+
+    .heylo-todays-list {
+      margin-top: $margin-large;
+      flex: 1;
+    }
+  }
+}
+
+@include laptop() {
+  .dashboard-container {
+    margin-left: 100px;
+    margin-top: $margin-xl;
+  }
+}
+
+@include tab() {
+  .dashboard-container {
+    &__main-contents {
+      width: calc(100% - 24px) !important;
+      flex-direction: row !important;
+    }
+  }
+}

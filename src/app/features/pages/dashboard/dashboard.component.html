@@ -1,0 +1,69 @@
+<div class="dashboard-header">
+  <h1>Dashboard</h1>
+</div>
+<div class="dashboard-container">
+  <h3>
+    Hey,
+    <span
+      class="dashboard-container__welcome-text-span"
+      *ngIf="_userFirstName$ | async as FirstName"
+      >{{ FirstName }}</span
+    >
+  </h3>
+  <ng-container *ngIf="_listStatus$ | async as listStatus">
+    <h6 *ngIf="listStatus?.isDataLoaded">
+      You have
+      <span class="dashboard-container__status-text-span">{{
+        listStatus.pending
+      }}</span>
+      task(s) remaining
+    </h6>
+
+    <h6
+      *ngIf="listStatus?.isLoading && !listStatus?.isDataLoaded"
+      class="dashboard-container__status-text-loader"
+    ></h6>
+  </ng-container>
+
+  <div class="dashboard-container__main-contents">
+    <ng-container
+      *ngIf="
+        _categoriesEntity$ | async as categoryListEntities;
+        else showCategoryLoader
+      "
+    >
+      <heylo-category-list
+        class="heylo-category-list"
+        [showLoader]="false"
+        *ngIf="!(categoryListEntities | isEmpty); else showCategoryLoader"
+        [categoryList]="categoryListEntities"
+      ></heylo-category-list>
+    </ng-container>
+
+    <ng-container
+      *ngIf="_pendingListEntities$ | async as pendingList; else showListLoader"
+    >
+      <heylo-todays-list
+        *ngIf="!(pendingList | isEmpty); else showListLoader"
+        (checkboxClick)="handleCheckboxClick($event)"
+        [listData]="pendingList"
+        [showLoader]="false"
+        class="heylo-todays-list"
+      ></heylo-todays-list>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #showCategoryLoader>
+  <heylo-category-list
+    class="heylo-category-list"
+    [showLoader]="true"
+  ></heylo-category-list>
+</ng-template>
+
+<ng-template #showListLoader>
+  <heylo-todays-list
+    [showLoader]="true"
+    class="heylo-todays-list"
+  ></heylo-todays-list>
+</ng-template>

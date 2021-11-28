@@ -1,0 +1,36 @@
+@import "~src/theme/theme.scss";
+
+.add-category-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  &__form {
+    margin-top: $margin-medium;
+    @include input-text();
+  }
+
+  &__actions {
+    margin-top: auto;
+  }
+}
+
+@include laptop() {
+  .add-category-container {
+    &__form {
+      margin-top: unset !important;
+    }
+
+    &__actions {
+      margin-top: unset !important;
+
+      ::ng-deep {
+        .primary-button {
+          width: 320px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="checkbox">
+  <div
+    class="checkbox__checked"
+    [ngClass]="{ active: isChecked }"
+    *ngIf="isChecked"
+  >
+    <heylo-check-icon></heylo-check-icon>
+  </div>
+  <div class="checkbox__checked" *ngIf="!isChecked"></div>
+  <span class="checkbox__label" [ngClass]="{ active: isChecked }">{{
+    label
+  }}</span>
+</div>

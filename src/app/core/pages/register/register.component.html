@@ -1,0 +1,60 @@
+<div class="register-container">
+  <div class="header">
+    <h1>SIGN-UP</h1>
+  </div>
+
+  <div class="social-accounts">
+    <h6 class="social-accounts__info-text">
+      Sign-up with your social accounts
+    </h6>
+    <div class="social-accounts__button-container">
+      <span class="btn google">
+        <heylo-social-button [icon]="appIcons.google"></heylo-social-button>
+      </span>
+      <span class="btn apple">
+        <heylo-social-button [icon]="appIcons.apple"></heylo-social-button>
+      </span>
+    </div>
+  </div>
+
+  <form class="login-form">
+    <div class="input-text displayname">
+      <label class="text-label"> Display name </label>
+      <input
+        autocomplete="off"
+        class="custom-input-text"
+        type="text"
+        placeholder="Enter your Name"
+      />
+    </div>
+    <div class="input-text email">
+      <label class="text-label"> Email </label>
+      <input
+        autocomplete="off"
+        class="custom-input-text"
+        type="text"
+        placeholder="Enter your email"
+      />
+    </div>
+
+    <div class="input-text password">
+      <label class="text-label"> Password </label>
+      <input
+        autocomplete="off"
+        class="custom-input-text"
+        type="password"
+        placeholder="Enter your password"
+        readonly
+        onfocus="this.removeAttribute('readonly');"
+      />
+    </div>
+
+    <div class="login-btn">
+      <heylo-primary-button label="SIGN-UP"></heylo-primary-button>
+    </div>
+    <a class="create-label"
+      >Already have an account?
+      <span [routerLink]="'/core/login'">Login</span></a
+    >
+  </form>
+</div>

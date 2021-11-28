@@ -1,0 +1,29 @@
+<div class="dashboard-category-container">
+  <div class="dashboard-category-container__header">
+    <h3>Categories</h3>
+    <p *ngIf="!showLoader">View all</p>
+  </div>
+
+  <div class="dashboard-category-container__category-list" *ngIf="!showLoader">
+    <ng-container
+      *ngFor="let category of categoryList | keyvalue; trackBy: trackById"
+    >
+      <div *ngIf="category.value as key" class="category">
+        <span class="category__title"> {{ key.name }} </span>
+        <span class="category__progress">
+          <heylo-progress-circle></heylo-progress-circle>
+        </span>
+        <span class="category__completed">
+          <span class="total">4</span> tasks remaining
+        </span>
+      </div>
+    </ng-container>
+  </div>
+  <div
+    class="dashboard-category-container__category-list loader"
+    *ngIf="showLoader"
+  >
+    <div class="category loader"></div>
+    <div class="category loader"></div>
+  </div>
+</div>

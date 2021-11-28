@@ -1,0 +1,78 @@
+@import "src/theme/theme.scss";
+
+.dropdown-container {
+  display: flex;
+  width: 100%;
+
+  &__select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .header {
+      padding: $padding;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+      &__label {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        .title {
+          font-size: font-size($size: "h3");
+        }
+        .subtitle {
+          color: color($color: "text-secondary");
+        }
+      }
+
+      &__icon {
+        transition: $transition;
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      width: 100%;
+      background-color: color($color: "background-secondary") !important;
+      padding: $padding;
+      border-radius: $border-radius-medium;
+      overflow: hidden;
+      overflow-y: scroll;
+      height: 150px;
+      &__options {
+        cursor: pointer;
+        padding: $padding 0;
+        font-size: font-size($size: "h5");
+        .radio_input {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    svg {
+      width: 16px;
+
+      .fa-primary {
+        color: color();
+      }
+
+      .fa-secondary {
+        color: color($color: "primary-light");
+      }
+    }
+  }
+}

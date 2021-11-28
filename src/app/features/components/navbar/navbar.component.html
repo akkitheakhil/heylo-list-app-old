@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <ng-container *ngFor="let tab of bottomTabs">
+    <div class="icon" (click)="tabController(tab)">
+      <heylo-icon
+        [icon]="tab.icon"
+        [class]="tab.icon.toLocaleLowerCase()"
+        [ngClass]="{ active: activeTab === tab }"
+      ></heylo-icon>
+    </div>
+  </ng-container>
+</nav>

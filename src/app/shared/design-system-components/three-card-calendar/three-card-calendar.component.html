@@ -1,0 +1,29 @@
+<div *ngIf="calendarData$ | async as CalenderData" class="calendar-container">
+  <div class="calendar-container__button prev">
+    <heylo-chevron-left
+      (click)="getPrevDateList()"
+      *ngIf="initialDaySelector$ | async"
+    ></heylo-chevron-left>
+  </div>
+
+  <div class="calendar-container__calendar">
+    <ng-container *ngFor="let date of CalenderData">
+      <div
+        class="calendar__date"
+        [ngClass]="{ active: date === (selectedDate$ | async) }"
+        (click)="handleSelectedDate(date)"
+      >
+        <span class="day">
+          {{ date | customDate: "day" }}
+        </span>
+        <span class="date">
+          {{ date | customDate: "date" }}
+        </span>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="calendar-container__button next">
+    <heylo-chevron-right (click)="getNextDateList()"></heylo-chevron-right>
+  </div>
+</div>

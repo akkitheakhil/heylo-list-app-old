@@ -1,0 +1,47 @@
+<div class="dropdown-container" *ngIf="dropDownList">
+  <div class="dropdown-container__select">
+    <div class="header" (click)="handleDropdown()">
+      <div class="header__label">
+        <span class="title">{{ selectedItem.label }}</span>
+        <span class="subtitle">{{ selectedItem.subTitle }}</span>
+      </div>
+      <div class="header__icon" [ngClass]="{ active: isDropDownVisible }">
+        <heylo-caret-down></heylo-caret-down>
+      </div>
+    </div>
+    <div class="options-container" *ngIf="isDropDownVisible">
+      <div
+        class="options-container__options"
+        (click)="handleSelectClick(default)"
+        *ngIf="showDefault"
+      >
+        <input
+          type="radio"
+          name="dropdown"
+          [attr.id]="default?.value"
+          class="radio_input"
+        />
+        <label class="radio_label" [attr.for]="default?.value">
+          {{ default?.label }}
+        </label>
+      </div>
+
+      <ng-container *ngFor="let item of dropDownList">
+        <div
+          class="options-container__options"
+          (click)="handleSelectClick(item)"
+        >
+          <input
+            type="radio"
+            name="dropdown"
+            [attr.id]="item.value"
+            class="radio_input"
+          />
+          <label class="radio_label" [attr.for]="item.value">
+            {{ item.label }}
+          </label>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

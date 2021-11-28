@@ -1,0 +1,55 @@
+@import "~src/theme/theme.scss";
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: $margin;
+  &__checked {
+    margin-right: $margin-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 2px solid color($color: "text-light");
+    svg {
+      height: 16px;
+    }
+  }
+  &__label {
+    @include h4();
+  }
+}
+
+:host {
+  ::ng-deep {
+    svg {
+      height: 16px !important;
+    }
+
+    .checkbox__checked {
+      &.active {
+        border-color: color($color: "primary");
+        svg {
+          .fa-secondary {
+            color: color($color: "primary-light");
+          }
+          .fa-primary {
+            color: color($color: "primary");
+          }
+        }
+      }
+    }
+
+    .checkbox__label {
+      transition: $transition;
+      &.active {
+        color: color($color: "text-accent");
+        text-decoration: line-through;
+        text-decoration-color: color($color: "primary");
+        text-decoration-thickness: 4px;
+      }
+    }
+  }
+}

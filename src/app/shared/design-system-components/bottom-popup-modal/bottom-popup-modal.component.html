@@ -1,0 +1,16 @@
+<div class="overlay" [ngClass]="{ open: isOpen }">
+  <div class="overlay__close-header" (click)="close()" (dragover)="close()">
+    <hr />
+    <div class="icon">
+      <heylo-add-icon></heylo-add-icon>
+    </div>
+  </div>
+  <div class="overlay__main-content">
+    <ng-content> </ng-content>
+  </div>
+</div>
+<div
+  class="overlay-backdrop"
+  (click)="close()"
+  [ngClass]="{ open: isOpen }"
+></div>

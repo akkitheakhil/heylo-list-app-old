@@ -1,0 +1,96 @@
+@import "~src/theme/theme.scss";
+
+.category-container {
+  margin-top: $margin-large;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: color($color: "text-accent");
+    }
+  }
+
+  &__category-list {
+    margin-top: $margin-medium;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .category {
+      display: flex;
+
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 190px;
+      width: calc(50% - 16px);
+      max-width: 240px;
+      border-radius: $border-radius-large;
+      color: color($color: "background");
+
+      &__title {
+        font-size: font-size($size: "h3");
+      }
+
+      &__completed {
+        font-size: font-size($size: "h5");
+
+        .total {
+          font-size: font-size($size: "h2");
+        }
+      }
+
+      &__progress {
+        align-self: center;
+      }
+
+      font-weight: 700;
+      padding: $padding-medium;
+      &:nth-child(1n) {
+        background: color($color: "card-color-1");
+      }
+      &:nth-child(2n) {
+        background: color($color: "card-color-2");
+      }
+      &:nth-child(3n) {
+        background: color($color: "card-color-3");
+      }
+      &:nth-child(4n) {
+        background: color($color: "card-color-4");
+      }
+
+      margin: 0 $margin;
+
+      &:nth-of-type(even) {
+        margin-top: $margin-large;
+      }
+
+      &.loader {
+        @include skeletonLoader();
+      }
+
+      transition: $transition;
+      cursor: pointer;
+      &:hover {
+        transform: translateY(-8px);
+      }
+    }
+  }
+}
+
+@include tab() {
+  .category {
+    &:nth-of-type(even) {
+      margin-top: unset !important;
+    }
+
+    margin-bottom: $margin-medium !important;
+  }
+}
+
+@include laptop() {
+  .category-container__category-list {
+    justify-content: unset !important;
+  }
+}

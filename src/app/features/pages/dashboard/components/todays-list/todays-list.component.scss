@@ -1,0 +1,56 @@
+@import "~src/theme/theme.scss";
+
+.today-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .subtext {
+      color: color($color: "text-accent");
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    background: color($color: "background-accent");
+    padding: $padding-medium;
+    margin-top: $margin;
+    border-radius: $border-radius-medium;
+    min-height: 180px;
+    .listItem {
+      display: flex;
+      align-items: center;
+      &__checkbox {
+        margin-right: $margin-medium;
+      }
+
+      &__text {
+        @include h6();
+      }
+
+      &.loader {
+        height: 15px;
+        width: 30%;
+        @include skeletonLoader();
+      }
+    }
+
+    &.loader {
+      @include skeletonLoader();
+    }
+  }
+}
+
+@include tab() {
+  .today-list {
+    margin: 0 $margin-medium !important;
+    &__container {
+      min-height: 300px !important;
+    }
+  }
+}

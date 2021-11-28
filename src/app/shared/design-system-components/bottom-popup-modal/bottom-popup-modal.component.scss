@@ -1,0 +1,108 @@
+@import "~src/theme/theme.scss";
+
+.overlay-backdrop {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  &.open {
+    display: block;
+  }
+  cursor: pointer;
+}
+
+.overlay {
+  min-width: 340px !important;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: color($color: "background-secondary");
+  z-index: 99999;
+  border-top-right-radius: $border-radius-medium;
+  border-top-left-radius: $border-radius-medium;
+  transition: $transition;
+  top: 100%;
+  height: 0;
+  padding: $padding-medium;
+  overflow: hidden;
+  &__close-header {
+    cursor: pointer;
+    height: $padding-medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    hr {
+      width: 48px;
+      height: 2px;
+      background-color: color($color: "primary-light");
+    }
+
+    .icon {
+      display: none;
+    }
+  }
+
+  &__main-content {
+    padding: $margin;
+    width: 100%;
+    height: 100%;
+    display: none;
+    transition: $transition;
+  }
+
+  &.open {
+    height: 60% !important;
+    top: 40% !important;
+
+    .overlay__main-content {
+      display: block !important;
+    }
+  }
+}
+
+@include tab() {
+  .overlay {
+    left: 50% !important;
+    border-radius: $border-radius-medium !important;
+    padding-bottom: $padding-medium !important;
+    &__close-header {
+      height: unset !important;
+      hr {
+        display: none;
+      }
+      .icon {
+        margin-right: auto;
+        display: block !important;
+        position: absolute;
+        top: $margin-medium;
+        right: $margin-medium;
+        transform: rotate(45deg);
+        ::ng-deep {
+          svg {
+            .fa-group {
+              .fa-secondary {
+                fill: color($color: "primary-light");
+              }
+
+              .fa-primary {
+                fill: color($color: "primary");
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.open {
+      top: 50% !important;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+}

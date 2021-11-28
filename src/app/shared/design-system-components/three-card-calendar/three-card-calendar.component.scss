@@ -1,0 +1,58 @@
+@import "~src/theme/theme.scss";
+
+.calendar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__button {
+    cursor: pointer;
+  }
+
+  &__calendar {
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .calendar__date {
+      margin: $margin;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      width: 60px;
+      border-radius: $border-radius-medium;
+      background-color: color($color: "background-secondary");
+      cursor: pointer;
+      transition: $transition;
+      .day {
+        text-transform: uppercase;
+        color: color($color: "text-white");
+      }
+
+      .date {
+        font-size: font-size($size: "h2");
+      }
+
+      &.active {
+        background-color: color($color: "secondary");
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    svg {
+      height: 24px;
+      .fa-secondary {
+        color: color($color: "primary-light");
+      }
+      .fa-primary {
+        color: color($color: "primary");
+      }
+    }
+  }
+}

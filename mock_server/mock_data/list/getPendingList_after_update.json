@@ -1,0 +1,21 @@
+{
+  "date": "11-10-2021",
+  "list": [
+    {
+      "id": "asdasdasd13",
+      "categoryId": "asdasd123124asd",
+      "categoryName": "Travel",
+      "name": "London",
+      "value": false,
+      "createdAt": "08-10-2021"
+    },
+    {
+      "id": "asdasdasd14",
+      "categoryId": "asdasd123125asd",
+      "categoryName": "Buy milk",
+      "name": "Shopping",
+      "value": false,
+      "createdAt": "08-10-2021"
+    }
+  ]
+}

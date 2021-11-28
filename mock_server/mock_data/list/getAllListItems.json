@@ -1,0 +1,46 @@
+[
+  {
+    "id": "jhahsdj123",
+    "categoryId": "",
+    "name": "Visit",
+    "createdAt": "08-10-2021",
+    "checklist": [
+      {
+        "id": "asdasdasd12",
+        "name": "Maldives",
+        "value": false
+      },
+      {
+        "id": "asdasdasd13",
+        "name": "London",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "jhahsdj124",
+    "categoryId": "",
+    "name": "Daily Shopping",
+    "createdAt": "08-10-2021",
+    "checklist": [
+      {
+        "id": "asdasdasd14",
+        "name": "Milk",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "jhahsdj125",
+    "categoryId": "",
+    "name": "Myntra Sale",
+    "createdAt": "08-10-2021",
+    "checklist": [
+      {
+        "id": "asdasdasd15",
+        "name": "Shop cloths on sale",
+        "value": true
+      }
+    ]
+  }
+]

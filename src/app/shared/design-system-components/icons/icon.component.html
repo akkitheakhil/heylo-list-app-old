@@ -1,0 +1,18 @@
+<ng-container [ngSwitch]="icon">
+  <ng-container *ngSwitchCase="appIcons.profile">
+    <heylo-profile-icon [height]="height"></heylo-profile-icon>
+  </ng-container>
+  <ng-container *ngSwitchCase="appIcons.home">
+    <heylo-home-icon [height]="height"></heylo-home-icon>
+  </ng-container>
+  <ng-container *ngSwitchCase="appIcons.add">
+    <heylo-add-icon [height]="height"></heylo-add-icon>
+  </ng-container>
+  <ng-container *ngSwitchCase="appIcons.category">
+    <heylo-category-icon [height]="height"></heylo-category-icon>
+  </ng-container>
+  <ng-container *ngSwitchCase="appIcons.list">
+    <heylo-list-icon [height]="height"></heylo-list-icon>
+  </ng-container>
+  <ng-container *ngSwitchDefault></ng-container>
+</ng-container>

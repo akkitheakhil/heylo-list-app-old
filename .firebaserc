@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "heylo-list"
+  },
+  "targets": {
+    "heylo-list": {
+      "hosting": {
+        "heylo-list": [
+          "heylo-list"
+        ]
+      }
+    }
+  }
+}

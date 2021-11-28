@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import "theme/theme.scss";
+
+* {
+  box-sizing: border-box;
+
+  ::-webkit-scrollbar {
+    width: 0.3rem;
+    height: 50%;
+    z-index: 99 !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+    z-index: 99 !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color($color: "primary");
+    z-index: 99 !important;
+  }
+}
+
+html {
+  font-family: $font-family;
+  min-width: 380px !important;
+  font-size: 8px;
+
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+
+  h1 {
+    @include h1;
+  }
+
+  h2 {
+    @include h2;
+  }
+
+  h3 {
+    @include h3;
+  }
+
+  h4 {
+    @include h4;
+  }
+
+  h5 {
+    @include h5;
+  }
+
+  h6 {
+    @include h6;
+  }
+
+  p {
+    @include p;
+  }
+
+  a {
+    @include a;
+  }
+  overflow-x: hidden !important;
+  min-width: $min-width !important;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  // height: 100vh;
+  width: 100%;
+  // overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  min-width: $min-width !important;
+  background-color: color($color: "background");
+  color: color($color: "text-light");
+}

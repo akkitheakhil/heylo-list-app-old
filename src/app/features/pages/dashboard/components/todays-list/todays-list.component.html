@@ -1,0 +1,26 @@
+<div class="today-list">
+  <div class="today-list__header">
+    <h3>Today's</h3>
+
+    <p *ngIf="!showLoader" class="subtext">View all</p>
+  </div>
+
+  <div class="today-list__container" *ngIf="!(listData | isEmpty)">
+    <ng-container
+      *ngFor="let listItem of listData | keyvalue; trackBy: trackById"
+    >
+      <div class="listItem">
+        <heylo-checkbox
+          (click)="handleCheckboxClick(listItem.value)"
+          [label]="listItem.value?.name || ''"
+          [isChecked]="listItem.value?.value || false"
+          class="listItem__checkbox"
+        ></heylo-checkbox>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="today-list__container loader" *ngIf="showLoader">
+    <div class="listItem loader"></div>
+  </div>
+</div>

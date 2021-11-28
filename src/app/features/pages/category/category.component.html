@@ -1,0 +1,44 @@
+<div class="category-header">
+  <h1>Categories</h1>
+</div>
+<div class="category-container">
+  <div class="category-container__add-button">
+    <heylo-primary-button
+      (click)="handleAddCategory()"
+      height="72px"
+      label="Add Category"
+    ></heylo-primary-button>
+  </div>
+
+  <div class="category-container__main-contents">
+    <ng-container
+      *ngIf="
+        _categoriesEntity$ | async as categoryListEntities;
+        else showCategoryLoader
+      "
+    >
+      <heylo-category-list-view
+        class="heylo-category-list"
+        [showLoader]="false"
+        *ngIf="!(categoryListEntities | isEmpty); else showCategoryLoader"
+        [categoryList]="categoryListEntities"
+      ></heylo-category-list-view>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #showCategoryLoader>
+  <heylo-category-list-view
+    class="heylo-category-list"
+    [showLoader]="true"
+  ></heylo-category-list-view>
+</ng-template>
+
+<div class="">
+  <heylo-bottom-popup-modal
+    (didClose)="handleDidClose()"
+    [isOpen]="showBottomSheet"
+  >
+    <heylo-add-category-sheet></heylo-add-category-sheet>
+  </heylo-bottom-popup-modal>
+</div>

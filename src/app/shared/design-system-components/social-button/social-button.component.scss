@@ -1,0 +1,20 @@
+@import "~src/theme/theme.scss";
+
+.social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 280px;
+  flex: 1;
+  background-color: color($color: "background-secondary");
+  height: 60px;
+  border-radius: $border-radius-medium;
+  border: 2px solid color($color: "primary");
+  transition: $transition;
+  cursor: pointer;
+  &:active {
+    border: 2px solid color($color: "secondary");
+    background-color: color($color: "background-accent");
+  }
+}

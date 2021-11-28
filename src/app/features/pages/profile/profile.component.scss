@@ -1,0 +1,32 @@
+@import "~src/theme/theme.scss";
+
+.profile-header {
+  padding: $padding-large;
+  position: fixed;
+  background: color($color: "background");
+  width: 100%;
+  padding-bottom: 0px;
+  top: 0;
+  h1 {
+    font-size: font-size($size: "large") !important  ;
+  }
+}
+
+.profile-container {
+  padding: $padding-3xl $padding-large;
+}
+
+@include laptop() {
+  .profile-container {
+    margin-left: 100px;
+    margin-top: $margin-xl;
+  }
+}
+
+@include tab() {
+  .profile-container {
+    &__main-contents {
+      width: calc(100% - 24px) !important;
+    }
+  }
+}

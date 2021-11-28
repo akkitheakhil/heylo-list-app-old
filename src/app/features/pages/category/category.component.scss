@@ -1,0 +1,41 @@
+@import "~src/theme/theme.scss";
+
+.category-header {
+  padding: $padding-large;
+  position: fixed;
+  background: color($color: "background");
+  width: 100%;
+  padding-bottom: 0px;
+  top: 0;
+  z-index: 99;
+  h1 {
+    font-size: font-size($size: "large") !important  ;
+  }
+}
+
+.category-container {
+  padding: $padding-3xl $padding-large;
+
+  &__add-button {
+    width: 100%;
+  }
+}
+
+@include laptop() {
+  .category-container {
+    margin-left: 100px;
+    margin-top: $margin-xl;
+  }
+}
+
+@include tab() {
+  .category-container {
+    &__main-contents {
+      width: calc(100% - 24px) !important;
+    }
+
+    &__add-button {
+      width: 300px !important;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+@import "~src/theme/theme.scss";
+
+@mixin activeIcon() {
+  &::after {
+    transition: $transition;
+    content: " ";
+    position: absolute !important;
+    height: 10px !important;
+    width: 10px !important;
+    border-radius: 50% !important;
+    background-color: color() !important;
+    bottom: -16px !important;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: color($color: "background");
+  padding-top: $padding;
+  padding-bottom: $padding-large;
+  transition: $transition;
+  min-width: 340px !important;
+  z-index: 99;
+}
+
+:host {
+  ::ng-deep {
+    .profile {
+      svg {
+        .fa-group {
+          .fa-secondary {
+            fill: color($color: "text-primary");
+          }
+        }
+      }
+    }
+
+    .icon {
+      cursor: pointer;
+      .active {
+        transition: $transition;
+        position: relative;
+        @include activeIcon();
+        svg {
+          .fa-group {
+            .fa-secondary {
+              fill: color();
+            }
+
+            .fa-primary {
+              fill: color($color: "primary-light");
+            }
+          }
+        }
+      }
+      transition: $transition;
+    }
+
+    .add {
+      svg {
+        height: 48px !important;
+        .fa-group {
+          .fa-secondary {
+            fill: color($color: "secondary-light");
+          }
+
+          .fa-primary {
+            fill: color($color: "secondary");
+          }
+        }
+      }
+    }
+  }
+}
+
+@include laptop() {
+  .navbar {
+    flex-direction: column;
+    height: 70%;
+    left: 24px;
+    right: unset;
+    bottom: unset;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    background-color: color($color: "background-accent");
+    padding: 0 $padding;
+    border-radius: $border-radius-large;
+    min-width: unset !important;
+  }
+
+  .icon {
+    .active {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<ng-container [ngSwitch]="icon">
+  <div *ngSwitchCase="appIcons.google">
+    <div class="social-btn">
+      <heylo-google-icons></heylo-google-icons>
+    </div>
+  </div>
+  <div *ngSwitchCase="appIcons.apple">
+    <div class="social-btn">
+      <heylo-apple-icon></heylo-apple-icon>
+    </div>
+  </div>
+  <p *ngSwitchDefault></p>
+</ng-container>
